@@ -1,0 +1,6 @@
+{
+  "name": "The Final Whistle - Lionel Messi's International Legacy",
+  "description": "Premium football editorial publication exploring Lionel Messi's international journey with Argentina, his 2016 retirement, World Cup glory, and the end of an era.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
