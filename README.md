@@ -104,9 +104,10 @@ npm run preview
 2. Go to [vercel.com](https://vercel.com) and click **"Add New Project"**.
 3. Import this repository.
 4. Framework Preset: **Vite** (auto-detected via `vercel.json`).
-5. Build Command: `npm run build`
-6. Output Directory: `dist`
-7. Click **Deploy**.
+5. Install Command: `npm install --legacy-peer-deps` (configured automatically in `vercel.json` and `.npmrc`).
+6. Build Command: `npm run build`
+7. Output Directory: `dist`
+8. Click **Deploy**.
 
 ---
 
