@@ -1,15 +1,9 @@
 import React from "react";
-import { ChevronDown, BookOpen, Trophy } from "lucide-react";
+import { ChevronDown, BookOpen, Trophy, ExternalLink } from "lucide-react";
+import { Link } from "../context/RouterContext";
+import { ROUTES } from "../utils/routes";
 
-interface HeroSectionProps {
-  onReadStory: () => void;
-  onExploreLegacy: () => void;
-}
-
-export const HeroSection: React.FC<HeroSectionProps> = ({
-  onReadStory,
-  onExploreLegacy
-}) => {
+export const HeroSection: React.FC = () => {
   return (
     <section
       id="hero"
@@ -18,11 +12,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       {/* Background Hero Image with Layered Overlays */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/images/messi-hero-wc2022.jpg"
-          alt="Lionel Messi in Argentina national jersey during the 2022 FIFA World Cup"
+          src="/images/homepage.webp"
+          alt="Lionel Messi in the Argentina national football team jersey with atmospheric stadium lighting"
           className="w-full h-full object-cover object-center filter brightness-90 transform scale-105 transition-transform duration-1000 ease-out"
           loading="eager"
           decoding="async"
+          referrerPolicy="no-referrer"
         />
         {/* Cinematic Gradient Overlays */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0D] via-[#0B0B0D]/75 to-[#0B0B0D]/50" />
@@ -32,7 +27,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
       {/* Content Container */}
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
-        {/* Category Label (Zero-Pill discipline: unboxed clean text with bullet separators) */}
+        {/* Category Label */}
         <div className="flex items-center gap-2 text-xs sm:text-sm font-semibold tracking-[0.25em] text-[#74ACDF] uppercase mb-6 animate-in fade-in slide-in-from-bottom-2 duration-700">
           <span>Football</span>
           <span className="text-[#A5A5AA]">·</span>
@@ -56,40 +51,45 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           From the bittersweet tears of New Jersey in 2016 to the euphoric night under Lusail’s golden arches in 2022, Lionel Messi’s international journey rewrote the psychology of an entire football nation. As the twilight of his international career arrives, the game prepares to bid farewell to an era that will never be replicated.
         </p>
 
-        {/* Call to Action Buttons */}
+        {/* Call to Action Buttons opening in another tab */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto mb-16">
-          <button
-            onClick={onReadStory}
+          <Link
+            href={ROUTES.STORY}
+            target="_blank"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#74ACDF] hover:bg-[#4B91D2] text-[#0B0B0D] font-semibold text-sm tracking-wide rounded-md transition-all shadow-lg shadow-[#74ACDF]/20 hover:shadow-[#74ACDF]/40 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
           >
             <BookOpen className="w-4 h-4" />
             <span>Read the Story</span>
-          </button>
+            <ExternalLink className="w-3.5 h-3.5 opacity-70" />
+          </Link>
 
-          <button
-            onClick={onExploreLegacy}
+          <Link
+            href={ROUTES.LEGACY}
+            target="_blank"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#171719]/90 hover:bg-[#222227] text-[#F5F5F5] border border-[#222227] hover:border-[#74ACDF]/50 font-medium text-sm tracking-wide rounded-md transition-all hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#74ACDF]"
           >
             <Trophy className="w-4 h-4 text-[#C6A15B]" />
-            <span>Explore His Legacy</span>
-          </button>
+            <span>Messi's legacy</span>
+            <ExternalLink className="w-3.5 h-3.5 text-[#A5A5AA]" />
+          </Link>
         </div>
 
         {/* Photo Attribution Notice */}
         <div className="text-[11px] text-[#A5A5AA]/70 flex items-center gap-2">
-          <span>Photography: Qatar 2022 FIFA World Cup (CC BY 4.0 / Wikimedia Commons)</span>
+          <span>Photography: Lionel Messi, Argentina national team portrait (CC BY-SA 4.0 / Wikimedia Commons)</span>
         </div>
       </div>
 
-      {/* Subtle Scroll Indicator */}
-      <button
-        onClick={onReadStory}
+      {/* Subtle Scroll Indicator linking to /story */}
+      <Link
+        href={ROUTES.STORY}
+        target="_blank"
         className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center text-[#A5A5AA] hover:text-[#74ACDF] transition-colors focus-visible:outline-none"
-        aria-label="Scroll down to read article"
+        aria-label="Open story in new tab"
       >
-        <span className="text-[10px] tracking-[0.2em] uppercase font-mono mb-1">Scroll</span>
+        <span className="text-[10px] tracking-[0.2em] uppercase font-mono mb-1">Open Story in New Tab</span>
         <ChevronDown className="w-5 h-5 animate-bounce text-[#74ACDF]" />
-      </button>
+      </Link>
     </section>
   );
 };

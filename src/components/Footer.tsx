@@ -1,19 +1,13 @@
 import React from "react";
-import { ShieldCheck, ArrowUp } from "lucide-react";
+import { ArrowUp, ExternalLink } from "lucide-react";
+import { Link } from "../context/RouterContext";
+import { ROUTES } from "../utils/routes";
 
-interface FooterProps {
-  onOpenAbout: () => void;
-  onOpenPrivacy: () => void;
-  onNavigateSection: (sectionId: string) => void;
-  onBackToTop: () => void;
-}
+export const Footer: React.FC = () => {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
-export const Footer: React.FC<FooterProps> = ({
-  onOpenAbout,
-  onOpenPrivacy,
-  onNavigateSection,
-  onBackToTop
-}) => {
   return (
     <footer className="bg-[#0B0B0D] text-[#A5A5AA] border-t border-[#171719] pt-16 pb-12">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -21,8 +15,8 @@ export const Footer: React.FC<FooterProps> = ({
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
           {/* Brand Info */}
           <div className="md:col-span-2 space-y-4">
-            <div className="flex items-center gap-3">
-              <div className="relative flex items-center justify-center w-8 h-8 rounded-full bg-[#171719] border border-[#74ACDF]/50 text-[#74ACDF]">
+            <Link href={ROUTES.HOME} className="flex items-center gap-3 group inline-flex">
+              <div className="relative flex items-center justify-center w-8 h-8 rounded-full bg-[#171719] border border-[#74ACDF]/50 text-[#74ACDF] group-hover:border-[#74ACDF] transition-colors">
                 <svg
                   className="w-4 h-4 text-[#74ACDF]"
                   viewBox="0 0 24 24"
@@ -36,10 +30,10 @@ export const Footer: React.FC<FooterProps> = ({
                 </svg>
                 <div className="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full bg-[#C6A15B]" />
               </div>
-              <span className="font-serif text-lg font-bold text-[#F5F5F5] tracking-wider uppercase">
+              <span className="font-serif text-lg font-bold text-[#F5F5F5] group-hover:text-white tracking-wider uppercase transition-colors">
                 The Final Whistle
               </span>
-            </div>
+            </Link>
 
             <p className="text-xs uppercase tracking-[0.2em] text-[#C6A15B] font-mono">
               Beyond the Game. Into the Legacy.
@@ -50,51 +44,52 @@ export const Footer: React.FC<FooterProps> = ({
             </p>
           </div>
 
-          {/* Quick Navigation Links */}
+          {/* Quick Navigation Links opening in new tab */}
           <div className="space-y-3">
             <h4 className="text-xs font-semibold uppercase tracking-wider text-[#F5F5F5]">
               Editorial Navigation
             </h4>
             <ul className="space-y-2 text-xs">
               <li>
-                <button
-                  onClick={() => onNavigateSection("hero")}
-                  className="hover:text-[#74ACDF] transition-colors"
-                >
+                <Link href={ROUTES.HOME} className="hover:text-[#74ACDF] transition-colors">
                   Home (Top)
-                </button>
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() => onNavigateSection("article")}
-                  className="hover:text-[#74ACDF] transition-colors"
-                >
-                  Feature Story
-                </button>
+                <Link href={ROUTES.FEATURES} target="_blank" className="hover:text-[#74ACDF] transition-colors inline-flex items-center gap-1">
+                  <span>Features Tab</span>
+                  <ExternalLink className="w-3 h-3 opacity-60" />
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() => onNavigateSection("timeline")}
-                  className="hover:text-[#74ACDF] transition-colors"
-                >
-                  Career Timeline
-                </button>
+                <Link href={ROUTES.STORY} target="_blank" className="hover:text-[#74ACDF] transition-colors inline-flex items-center gap-1">
+                  <span>Read the Story</span>
+                  <ExternalLink className="w-3 h-3 opacity-60" />
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() => onNavigateSection("achievements")}
-                  className="hover:text-[#74ACDF] transition-colors"
-                >
-                  Messi’s Legacy & Honors
-                </button>
+                <Link href={ROUTES.LEGACY} target="_blank" className="hover:text-[#74ACDF] transition-colors inline-flex items-center gap-1">
+                  <span>Messi's legacy</span>
+                  <ExternalLink className="w-3 h-3 opacity-60" />
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() => onNavigateSection("related")}
-                  className="hover:text-[#74ACDF] transition-colors"
-                >
-                  Related Stories
-                </button>
+                <Link href={ROUTES.TIMELINE} target="_blank" className="hover:text-[#74ACDF] transition-colors inline-flex items-center gap-1">
+                  <span>Timeline</span>
+                  <ExternalLink className="w-3 h-3 opacity-60" />
+                </Link>
+              </li>
+              <li>
+                <Link href={ROUTES.GALLERY} target="_blank" className="hover:text-[#74ACDF] transition-colors inline-flex items-center gap-1">
+                  <span>Documentary Gallery</span>
+                  <ExternalLink className="w-3 h-3 opacity-60" />
+                </Link>
+              </li>
+              <li>
+                <Link href={ROUTES.STORIES} target="_blank" className="hover:text-[#74ACDF] transition-colors inline-flex items-center gap-1">
+                  <span>Latest stories</span>
+                  <ExternalLink className="w-3 h-3 opacity-60" />
+                </Link>
               </li>
             </ul>
           </div>
@@ -106,28 +101,22 @@ export const Footer: React.FC<FooterProps> = ({
             </h4>
             <ul className="space-y-2 text-xs">
               <li>
-                <button
-                  onClick={onOpenAbout}
-                  className="hover:text-[#74ACDF] transition-colors"
-                >
-                  About the Publication
-                </button>
+                <Link href={ROUTES.ABOUT} target="_blank" className="hover:text-[#74ACDF] transition-colors inline-flex items-center gap-1">
+                  <span>About the Publication</span>
+                  <ExternalLink className="w-3 h-3 opacity-60" />
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={onOpenPrivacy}
-                  className="hover:text-[#74ACDF] transition-colors"
-                >
-                  Privacy Policy & Disclaimers
-                </button>
+                <Link href={ROUTES.PRIVACY} target="_blank" className="hover:text-[#74ACDF] transition-colors inline-flex items-center gap-1">
+                  <span>Privacy Policy & Disclaimers</span>
+                  <ExternalLink className="w-3 h-3 opacity-60" />
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() => onNavigateSection("discussion")}
-                  className="hover:text-[#74ACDF] transition-colors"
-                >
-                  Reader Community
-                </button>
+                <Link href={ROUTES.COMMUNITY} target="_blank" className="hover:text-[#74ACDF] transition-colors inline-flex items-center gap-1">
+                  <span>Reader Community</span>
+                  <ExternalLink className="w-3 h-3 opacity-60" />
+                </Link>
               </li>
               <li>
                 <a
@@ -137,6 +126,7 @@ export const Footer: React.FC<FooterProps> = ({
                   className="hover:text-[#74ACDF] transition-colors inline-flex items-center gap-1"
                 >
                   <span>Wikimedia Commons Archive</span>
+                  <ExternalLink className="w-3 h-3 opacity-60" />
                 </a>
               </li>
             </ul>
@@ -157,7 +147,7 @@ export const Footer: React.FC<FooterProps> = ({
           </p>
 
           <button
-            onClick={onBackToTop}
+            onClick={scrollToTop}
             className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#171719] hover:bg-[#222227] text-xs text-[#A5A5AA] hover:text-[#74ACDF] border border-[#222227] rounded transition-colors"
             aria-label="Back to top of page"
           >

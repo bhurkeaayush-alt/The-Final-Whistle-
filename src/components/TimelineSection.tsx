@@ -128,14 +128,32 @@ export const TimelineSection: React.FC<TimelineSectionProps> = ({ onOpenPhotoLig
                       {/* Optional Milestone Image Thumbnail */}
                       {milestone.imageSrc && (
                         <div className="mt-4 pt-4 border-t border-[#222227] overflow-hidden rounded-lg">
-                          <div className="aspect-[16/9] w-full overflow-hidden bg-black/40">
+                          <button
+                            type="button"
+                            onClick={() => {
+                              if (milestone.year === "2005") onOpenPhotoLightbox("messi-debut-2005");
+                              else if (milestone.year === "2022") onOpenPhotoLightbox("messi-trophy-triumph");
+                              else if (milestone.year === "2008") onOpenPhotoLightbox("olympics-2008");
+                              else if (milestone.year === "2014") onOpenPhotoLightbox("swiss-2014");
+                              else if (milestone.year === "2021") onOpenPhotoLightbox("portrait-argentina");
+                              else onOpenPhotoLightbox("wc2022-celebration");
+                            }}
+                            className="aspect-[16/9] w-full overflow-hidden bg-black/40 block text-left group/img focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#74ACDF] rounded cursor-pointer relative"
+                            aria-label={`View full photo: ${milestone.imageAlt || milestone.title}`}
+                          >
                             <img
                               src={milestone.imageSrc}
                               alt={milestone.imageAlt || milestone.title}
-                              className="w-full h-full object-cover filter brightness-90 group-hover:scale-105 transition-transform duration-500"
+                              className="w-full h-full object-cover filter brightness-90 group-hover/img:scale-105 transition-transform duration-500"
                               loading="lazy"
+                              referrerPolicy="no-referrer"
                             />
-                          </div>
+                            <div className="absolute inset-0 bg-black/0 group-hover/img:bg-black/20 transition-colors pointer-events-none flex items-end p-2 opacity-0 group-hover/img:opacity-100">
+                              <span className="text-[10px] bg-black/70 text-white/90 px-2 py-0.5 rounded backdrop-blur-sm">
+                                Click to enlarge
+                              </span>
+                            </div>
+                          </button>
                         </div>
                       )}
                     </div>

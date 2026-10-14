@@ -56,6 +56,28 @@ Designed with the cinematic storytelling quality of *The Athletic* and *ESPN Lon
 
 ---
 
+## 🌐 Semantic URL Architecture & Good URL Rules
+
+The publication implements semantic, clean, lowercase, kebab-case URLs following web design best practices (no hashbangs, no query strings, deep linkable, and full browser back/forward support):
+
+| Section / View | Canonical URL | Description |
+| :--- | :--- | :--- |
+| **Homepage** | `/` | Editorial landing page, cinematic hero, highlights, and newsletter |
+| **Features Tab** | `/features` | Comprehensive Features hub, 7-chapter overview, reading estimates |
+| **Read the Story** | `/story` | Full cover story with sidebar chapter index, pull quotes, and photos |
+| **Messi’s Legacy** | `/messis-legacy` | Verified trophy cabinet, Golden Balls, and South American records |
+| **Career Timeline** | `/timeline` | Interactive 2005–2026 chronological milestones with era filters |
+| **Photo Gallery** | `/gallery` | Documentary sports photography archive with accessible lightbox |
+| **Latest Stories** | `/stories` | Companion analytical and tactical feature series index |
+| **Story: Road to Glory** | `/stories/road-to-world-cup-glory` | Standalone long-form piece on the Qatar World Cup journey |
+| **Story: 2021 Maracanã** | `/stories/copa-america-2021-turning-point` | Standalone analysis on how Rio 2021 broke the 28-year drought |
+| **Story: Next Generation** | `/stories/next-generation-argentine-football` | Standalone examination of post-Messi Argentine football |
+| **Community Discussions** | `/community` | Reader memories, verified reflections, and submission form |
+| **About Publication** | `/about` | Editorial masthead, journalistic integrity, and verification code |
+| **Privacy & Disclaimers** | `/privacy` | Mandatory independent disclaimer and licensing attribution |
+
+---
+
 ## 🎨 Design System & Palette
 
 - **Midnight Black**: `#0B0B0D`

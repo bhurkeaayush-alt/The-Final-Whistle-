@@ -77,6 +77,39 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ onOpenPhotoLight
           )}
 
           {/* Contextual image moments interspersed naturally */}
+          {idx === 0 && (
+            <div className="my-10 rounded-xl overflow-hidden border border-[#222227] bg-[#171719] shadow-2xl group">
+              <button
+                onClick={() => onOpenPhotoLightbox("messi-trophy-triumph")}
+                className="w-full text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#74ACDF] block"
+                aria-label="View Lionel Messi hoisting the World Cup trophy in full size"
+              >
+                <div className="relative aspect-[4/3] sm:aspect-[16/10] overflow-hidden bg-black/60">
+                  <img
+                    src="/images/2022-worldcup.jpeg"
+                    alt="Lionel Messi joyfully hoisting the FIFA World Cup trophy high above his head in Qatar 2022 wearing the ceremonial bisht"
+                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-out filter brightness-95 group-hover:brightness-100"
+                    loading="eager"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#171719] via-transparent to-transparent opacity-60 pointer-events-none" />
+                </div>
+                <div className="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 border-t border-[#222227] text-xs text-[#A5A5AA]">
+                  <div>
+                    <span className="font-serif text-[#F5F5F5] font-semibold block text-sm sm:text-base">
+                      The Promised Glory: Messi Hoisting the World Cup Trophy
+                    </span>
+                    <span className="text-[#A5A5AA] text-xs">
+                      From the boy in Rosario carrying an impossible burden to football's ultimate summit.
+                    </span>
+                  </div>
+                  <span className="text-[#74ACDF] font-medium flex items-center gap-1 flex-shrink-0 self-start sm:self-auto group-hover:underline">
+                    Click to view full photo
+                  </span>
+                </div>
+              </button>
+            </div>
+          )}
+
           {idx === 1 && (
             <div className="my-8 rounded-lg overflow-hidden border border-[#222227] bg-[#171719] group">
               <button

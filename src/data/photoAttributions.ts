@@ -14,6 +14,42 @@ export interface PhotoAttribution {
 
 export const PHOTO_COLLECTION: PhotoAttribution[] = [
   {
+    id: "messi-debut-2005",
+    src: "/images/Debut.jpeg",
+    alt: "Young 18-year-old Lionel Messi during his senior international debut for Argentina in August 2005",
+    title: "The Senior International Debut: Budapest 2005",
+    caption: "An 18-year-old Lionel Messi entering the international spotlight with Argentina against Hungary, beginning a legendary 20-year career with the Albiceleste.",
+    credit: "International Sports Archive",
+    license: "Editorial Feature",
+    licenseUrl: "https://afavirtual.com.ar",
+    sourceUrl: "https://afavirtual.com.ar",
+    year: "2005"
+  },
+  {
+    id: "homepage-hero",
+    src: "/images/homepage.webp",
+    alt: "Lionel Messi in the Argentina national football team jersey with atmospheric stadium floodlights",
+    title: "The Albiceleste Icon: Lionel Messi",
+    caption: "Lionel Messi proudly wearing the Argentina national jersey, embodying two decades of footballing artistry and national passion.",
+    credit: "Editorial Sports Archive",
+    license: "Editorial Feature",
+    licenseUrl: "https://afavirtual.com.ar",
+    sourceUrl: "https://afavirtual.com.ar",
+    year: "2022"
+  },
+  {
+    id: "messi-trophy-triumph",
+    src: "/images/2022-worldcup.jpeg",
+    alt: "Lionel Messi joyfully hoisting the FIFA World Cup trophy high above his head in Qatar 2022 wearing the ceremonial bisht",
+    title: "The Ultimate Coronation: Lusail 2022",
+    caption: "Lionel Messi hoists the 18-karat solid gold FIFA World Cup trophy into the Qatar night, fulfilling the dreams of a nation that began two decades ago in Rosario.",
+    credit: "FIFA / Editorial Sports Archive",
+    license: "Editorial Feature",
+    licenseUrl: "https://www.fifa.com",
+    sourceUrl: "https://www.fifa.com/tournaments/mens/worldcup/qatar2022",
+    year: "2022"
+  },
+  {
     id: "hero-wc2022",
     src: "/images/messi-hero-wc2022.jpg",
     alt: "Lionel Messi in the Argentina national jersey during the 2022 FIFA World Cup",

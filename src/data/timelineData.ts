@@ -20,6 +20,8 @@ export const TIMELINE_MILESTONES: TimelineMilestone[] = [
     summary: "Makes his senior debut for Argentina against Hungary in Budapest at age 18.",
     description: "Coming on as a 63rd-minute substitute under manager José Pékerman, Messi's debut lasted barely 43 seconds when German referee Markus Merk issued a disputed red card for an elbow flail while shaking off defender Vilmos Vanczák. A tearful Messi was consoled by teammates in the dressing room—a bittersweet start to a twenty-year international odyssey.",
     venue: "Ferenc Puskás Stadium, Budapest",
+    imageSrc: "/images/Debut.jpeg",
+    imageAlt: "Photo of Lionel Messi making his senior international debut for Argentina against Hungary in August 2005",
     badge: "Debut"
   },
   {
@@ -76,8 +78,8 @@ export const TIMELINE_MILESTONES: TimelineMilestone[] = [
     summary: "Dismantles European champions Italy at Wembley, followed by immortal World Cup glory in Qatar.",
     description: "Messi put on a masterclass at Wembley in June to capture the 2022 Finalissima against Italy (3-0). Months later in Qatar, he orchestrated Argentina's unforgettable march to their third World Cup crown: scoring in every knockout round, bagging a brace in the sensational 3–3 final against France, and calmly slotting his shootout penalty. Awarded his historic second World Cup Golden Ball, Messi lifted the trophy draped in the ceremonial Bisht.",
     venue: "Lusail Iconic Stadium, Qatar & Wembley, London",
-    imageSrc: "/images/messi-hero-wc2022.jpg",
-    imageAlt: "Lionel Messi celebrating World Cup triumph in Qatar 2022",
+    imageSrc: "/images/2022-worldcup.jpeg",
+    imageAlt: "Lionel Messi wearing the ceremonial bisht and triumphantly lifting the 2022 FIFA World Cup trophy high at Lusail Stadium",
     badge: "World Cup Champions"
   },
   {

@@ -1,14 +1,9 @@
 import React from "react";
-import { RELATED_STORIES, RelatedStory } from "../data/articleData";
-import { Clock, ArrowRight, Tag } from "lucide-react";
+import { RELATED_STORIES } from "../data/articleData";
+import { Clock, ArrowRight, ExternalLink } from "lucide-react";
+import { Link } from "../context/RouterContext";
 
-interface RelatedStoriesSectionProps {
-  onSelectStory: (story: RelatedStory) => void;
-}
-
-export const RelatedStoriesSection: React.FC<RelatedStoriesSectionProps> = ({
-  onSelectStory
-}) => {
+export const RelatedStoriesSection: React.FC = () => {
   return (
     <section id="related" className="py-24 bg-[#171719]/40 border-t border-[#171719] scroll-mt-20">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -27,15 +22,20 @@ export const RelatedStoriesSection: React.FC<RelatedStoriesSectionProps> = ({
           </p>
         </div>
 
-        {/* 3 Story Cards Grid */}
+        {/* 3 Story Cards Grid with Dedicated Semantic URLs opening in new tab */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {RELATED_STORIES.map((story) => (
             <article
               key={story.id}
               className="bg-[#171719] border border-[#222227] hover:border-[#74ACDF]/50 rounded-xl overflow-hidden transition-all duration-300 flex flex-col justify-between group shadow-lg hover:shadow-xl hover:shadow-[#74ACDF]/5"
             >
-              {/* Card Image */}
-              <div className="relative aspect-[16/10] overflow-hidden bg-black/50">
+              {/* Card Image linking to dedicated story URL in new tab */}
+              <Link
+                href={`/stories/${story.id}`}
+                target="_blank"
+                className="relative aspect-[16/10] overflow-hidden bg-black/50 block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#74ACDF]"
+                aria-label={`Open story: ${story.title} in new tab`}
+              >
                 <img
                   src={story.image}
                   alt={story.imageAlt}
@@ -45,7 +45,7 @@ export const RelatedStoriesSection: React.FC<RelatedStoriesSectionProps> = ({
                 <div className="absolute top-3 left-3 bg-[#0B0B0D]/80 backdrop-blur-sm border border-[#222227] text-[10px] uppercase font-mono tracking-wider text-[#74ACDF] px-2.5 py-1 rounded">
                   {story.category}
                 </div>
-              </div>
+              </Link>
 
               {/* Card Body */}
               <div className="p-6 flex-1 flex flex-col justify-between">
@@ -55,24 +55,34 @@ export const RelatedStoriesSection: React.FC<RelatedStoriesSectionProps> = ({
                     <span>{story.readTime}</span>
                   </div>
 
-                  <h3 className="font-serif text-xl font-bold text-[#F5F5F5] group-hover:text-white mb-3 leading-snug">
-                    {story.title}
-                  </h3>
+                  <Link
+                    href={`/stories/${story.id}`}
+                    target="_blank"
+                    className="block focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#74ACDF] rounded"
+                  >
+                    <h3 className="font-serif text-xl font-bold text-[#F5F5F5] group-hover:text-white mb-3 leading-snug">
+                      {story.title}
+                    </h3>
+                  </Link>
 
                   <p className="text-xs sm:text-sm text-[#A5A5AA] line-clamp-3 leading-relaxed mb-6">
                     {story.summary}
                   </p>
                 </div>
 
-                {/* Read More Action Button */}
-                <button
-                  onClick={() => onSelectStory(story)}
+                {/* Read More Action Button linking to /stories/:id in new tab */}
+                <Link
+                  href={`/stories/${story.id}`}
+                  target="_blank"
                   className="w-full inline-flex items-center justify-between pt-4 border-t border-[#222227] text-xs font-semibold text-[#74ACDF] group-hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#74ACDF] rounded"
-                  aria-label={`Read full feature: ${story.title}`}
+                  aria-label={`Read full feature: ${story.title} in new tab`}
                 >
-                  <span>Read Full Story</span>
+                  <span className="flex items-center gap-1.5">
+                    <span>Read Full Story</span>
+                    <ExternalLink className="w-3.5 h-3.5 opacity-70" />
+                  </span>
                   <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
-                </button>
+                </Link>
               </div>
             </article>
           ))}

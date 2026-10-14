@@ -1,19 +1,19 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Search, X, BookOpen, Clock, Trophy, ChevronRight, Hash } from "lucide-react";
+import { Search, X, ChevronRight, Hash, ExternalLink } from "lucide-react";
 import { MAIN_ARTICLE_SECTIONS, RELATED_STORIES } from "../data/articleData";
 import { TIMELINE_MILESTONES } from "../data/timelineData";
 import { OFFICIAL_TROPHIES } from "../data/statsData";
+import { Link } from "../context/RouterContext";
+import { ROUTES } from "../utils/routes";
 
 interface SearchModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onSelectResult: (type: "section" | "timeline" | "achievements" | "related", targetId?: string) => void;
 }
 
 export const SearchModal: React.FC<SearchModalProps> = ({
   isOpen,
-  onClose,
-  onSelectResult
+  onClose
 }) => {
   const [query, setQuery] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
@@ -133,7 +133,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
             </div>
           )}
 
-          {/* Section results */}
+          {/* Section results - with target="_blank" */}
           {matchedSections.length > 0 && (
             <div>
               <span className="text-[11px] font-mono uppercase tracking-wider text-[#74ACDF] block mb-2">
@@ -141,13 +141,12 @@ export const SearchModal: React.FC<SearchModalProps> = ({
               </span>
               <div className="space-y-2">
                 {matchedSections.map((sec) => (
-                  <button
+                  <Link
                     key={sec.id}
-                    onClick={() => {
-                      onSelectResult("section", sec.id);
-                      onClose();
-                    }}
-                    className="w-full text-left p-3 rounded-lg bg-[#0B0B0D] hover:bg-[#222227] border border-[#222227] transition-colors flex items-center justify-between group"
+                    href={`${ROUTES.STORY}#${sec.id}`}
+                    target="_blank"
+                    onClick={onClose}
+                    className="w-full text-left p-3 rounded-lg bg-[#0B0B0D] hover:bg-[#222227] border border-[#222227] transition-colors flex items-center justify-between group block"
                   >
                     <div>
                       <div className="flex items-center gap-2 text-xs text-[#C6A15B] font-mono">
@@ -161,14 +160,14 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                         {sec.subtitle}
                       </p>
                     </div>
-                    <ChevronRight className="w-4 h-4 text-[#A5A5AA] group-hover:text-[#74ACDF]" />
-                  </button>
+                    <ExternalLink className="w-4 h-4 text-[#A5A5AA] group-hover:text-[#74ACDF]" />
+                  </Link>
                 ))}
               </div>
             </div>
           )}
 
-          {/* Related story results */}
+          {/* Related story results - with target="_blank" */}
           {matchedStories.length > 0 && (
             <div>
               <span className="text-[11px] font-mono uppercase tracking-wider text-[#C6A15B] block mb-2">
@@ -176,13 +175,12 @@ export const SearchModal: React.FC<SearchModalProps> = ({
               </span>
               <div className="space-y-2">
                 {matchedStories.map((st) => (
-                  <button
+                  <Link
                     key={st.id}
-                    onClick={() => {
-                      onSelectResult("related", st.id);
-                      onClose();
-                    }}
-                    className="w-full text-left p-3 rounded-lg bg-[#0B0B0D] hover:bg-[#222227] border border-[#222227] transition-colors flex items-center justify-between group"
+                    href={`/stories/${st.id}`}
+                    target="_blank"
+                    onClick={onClose}
+                    className="w-full text-left p-3 rounded-lg bg-[#0B0B0D] hover:bg-[#222227] border border-[#222227] transition-colors flex items-center justify-between group block"
                   >
                     <div>
                       <span className="text-[10px] uppercase font-mono text-[#74ACDF]">
@@ -192,14 +190,14 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                         {st.title}
                       </h4>
                     </div>
-                    <ChevronRight className="w-4 h-4 text-[#A5A5AA] group-hover:text-[#C6A15B]" />
-                  </button>
+                    <ExternalLink className="w-4 h-4 text-[#A5A5AA] group-hover:text-[#C6A15B]" />
+                  </Link>
                 ))}
               </div>
             </div>
           )}
 
-          {/* Milestone results */}
+          {/* Milestone results - with target="_blank" */}
           {matchedMilestones.length > 0 && (
             <div>
               <span className="text-[11px] font-mono uppercase tracking-wider text-[#A5A5AA] block mb-2">
@@ -207,13 +205,12 @@ export const SearchModal: React.FC<SearchModalProps> = ({
               </span>
               <div className="space-y-2">
                 {matchedMilestones.map((m, i) => (
-                  <button
+                  <Link
                     key={i}
-                    onClick={() => {
-                      onSelectResult("timeline");
-                      onClose();
-                    }}
-                    className="w-full text-left p-3 rounded-lg bg-[#0B0B0D] hover:bg-[#222227] border border-[#222227] transition-colors flex items-center justify-between group"
+                    href={ROUTES.TIMELINE}
+                    target="_blank"
+                    onClick={onClose}
+                    className="w-full text-left p-3 rounded-lg bg-[#0B0B0D] hover:bg-[#222227] border border-[#222227] transition-colors flex items-center justify-between group block"
                   >
                     <div>
                       <span className="text-xs font-mono font-bold text-[#C6A15B]">
@@ -225,15 +222,16 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                       <p className="text-[11px] text-[#A5A5AA] line-clamp-1">
                         {m.summary}
                       </p>
+                      <span className="text-[10px] font-mono text-[#74ACDF] block mt-1">Timeline · View Milestone</span>
                     </div>
-                    <ChevronRight className="w-4 h-4 text-[#A5A5AA]" />
-                  </button>
+                    <ExternalLink className="w-4 h-4 text-[#A5A5AA]" />
+                  </Link>
                 ))}
               </div>
             </div>
           )}
 
-          {/* Trophy results */}
+          {/* Trophy results - with target="_blank" */}
           {matchedTrophies.length > 0 && (
             <div>
               <span className="text-[11px] font-mono uppercase tracking-wider text-[#74ACDF] block mb-2">
@@ -241,13 +239,12 @@ export const SearchModal: React.FC<SearchModalProps> = ({
               </span>
               <div className="space-y-2">
                 {matchedTrophies.map((t) => (
-                  <button
+                  <Link
                     key={t.id}
-                    onClick={() => {
-                      onSelectResult("achievements");
-                      onClose();
-                    }}
-                    className="w-full text-left p-3 rounded-lg bg-[#0B0B0D] hover:bg-[#222227] border border-[#222227] transition-colors flex items-center justify-between group"
+                    href={ROUTES.LEGACY}
+                    target="_blank"
+                    onClick={onClose}
+                    className="w-full text-left p-3 rounded-lg bg-[#0B0B0D] hover:bg-[#222227] border border-[#222227] transition-colors flex items-center justify-between group block"
                   >
                     <div>
                       <h4 className="text-xs font-bold text-[#F5F5F5]">
@@ -256,9 +253,10 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                       <p className="text-[11px] text-[#A5A5AA] line-clamp-1">
                         {t.description}
                       </p>
+                      <span className="text-[10px] font-mono text-[#C6A15B] block mt-1">Messi's legacy · View Honors</span>
                     </div>
-                    <ChevronRight className="w-4 h-4 text-[#A5A5AA]" />
-                  </button>
+                    <ExternalLink className="w-4 h-4 text-[#A5A5AA]" />
+                  </Link>
                 ))}
               </div>
             </div>
