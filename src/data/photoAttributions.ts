@@ -27,15 +27,15 @@ export const PHOTO_COLLECTION: PhotoAttribution[] = [
   },
   {
     id: "homepage-hero",
-    src: "/images/homepage.webp",
-    alt: "Lionel Messi in the Argentina national football team jersey with atmospheric stadium floodlights",
-    title: "The Albiceleste Icon: Lionel Messi",
-    caption: "Lionel Messi proudly wearing the Argentina national jersey, embodying two decades of footballing artistry and national passion.",
-    credit: "Editorial Sports Archive",
-    license: "Editorial Feature",
-    licenseUrl: "https://afavirtual.com.ar",
-    sourceUrl: "https://afavirtual.com.ar",
-    year: "2022"
+    src: "/images/smh-messi-retires.jpg",
+    alt: "Lionel Messi has announced his retirement from international football",
+    title: "The Time Has Come: Lionel Messi Retires From International Football",
+    caption: "Lionel Messi has announced his retirement from international football, bringing a legendary 20-year international career to an emotional conclusion.",
+    credit: "AP Photo / Stephanie Scarbrough via The Sydney Morning Herald",
+    license: "Editorial Feature / The Sydney Morning Herald",
+    licenseUrl: "https://www.smh.com.au/sport/soccer/the-time-has-come-argentine-great-lionel-messi-retires-from-international-football-20260901-p60t7n.html",
+    sourceUrl: "https://www.smh.com.au/sport/soccer/the-time-has-come-argentine-great-lionel-messi-retires-from-international-football-20260901-p60t7n.html",
+    year: "2026"
   },
   {
     id: "messi-trophy-triumph",
@@ -96,6 +96,18 @@ export const PHOTO_COLLECTION: PhotoAttribution[] = [
     licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0",
     sourceUrl: "https://commons.wikimedia.org/wiki/File:Lionel_Messi_20180626.jpg",
     year: "2018"
+  },
+  {
+    id: "messi-retirement-2016",
+    src: "/images/Retirement.jpeg",
+    alt: "Lionel Messi overwhelmed with emotion following the 2016 Copa América Centenario final at MetLife Stadium",
+    title: "The Shock Retirement Announcement: MetLife 2016",
+    caption: "A heartbroken Lionel Messi in the immediate aftermath of the 2016 Copa América Centenario final, announcing his sudden exit from international football before his historic return.",
+    credit: "International Sports Archive / Editorial",
+    license: "Editorial Feature",
+    licenseUrl: "https://afavirtual.com.ar",
+    sourceUrl: "https://afavirtual.com.ar",
+    year: "2016"
   },
   {
     id: "olympics-2008",

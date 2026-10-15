@@ -147,6 +147,7 @@ export const TimelineSection: React.FC<TimelineSectionProps> = ({ onOpenPhotoLig
                               else if (milestone.year === "2022") onOpenPhotoLightbox("messi-trophy-triumph");
                               else if (milestone.year === "2008") onOpenPhotoLightbox("olympics-2008");
                               else if (milestone.year === "2014") onOpenPhotoLightbox("swiss-2014");
+                              else if (milestone.year === "2016") onOpenPhotoLightbox("messi-retirement-2016");
                               else if (milestone.year === "2021") onOpenPhotoLightbox("portrait-argentina");
                               else onOpenPhotoLightbox("wc2022-celebration");
                             }}

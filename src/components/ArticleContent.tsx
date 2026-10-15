@@ -133,6 +133,46 @@ export const ArticleContent: React.FC<ArticleContentProps> = ({ onOpenPhotoLight
             </div>
           )}
 
+          {idx === 2 && (
+            <div className="my-10 rounded-xl overflow-hidden border border-[#222227] bg-[#171719] shadow-2xl group">
+              <button
+                onClick={() => onOpenPhotoLightbox("messi-retirement-2016")}
+                className="w-full text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#74ACDF] block"
+                aria-label="View Lionel Messi retirement announcement photo in full size"
+              >
+                <div className="relative aspect-[16/10] sm:aspect-[16/9] overflow-hidden bg-black/60">
+                  <img
+                    src="/images/Retirement.jpeg"
+                    alt="Lionel Messi devastated following the 2016 Copa América Centenario final, capturing the moment of his shock international retirement announcement"
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out filter brightness-95 group-hover:brightness-100"
+                    loading="lazy"
+                    referrerPolicy="no-referrer"
+                    onError={(e) => {
+                      const target = e.currentTarget;
+                      if (!target.src.endsWith('/Retirement.jpeg')) {
+                        target.src = '/Retirement.jpeg';
+                      }
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#171719] via-transparent to-transparent opacity-60 pointer-events-none" />
+                </div>
+                <div className="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 border-t border-[#222227] text-xs text-[#A5A5AA]">
+                  <div>
+                    <span className="font-serif text-[#F5F5F5] font-semibold block text-sm sm:text-base">
+                      The Retirement Announcement That Shocked Football
+                    </span>
+                    <span className="text-[#A5A5AA] text-xs">
+                      MetLife Stadium, June 26, 2016: The anguish of defeat and the announcement that stunned world sport.
+                    </span>
+                  </div>
+                  <span className="text-[#74ACDF] font-medium flex items-center gap-1 flex-shrink-0 self-start sm:self-auto group-hover:underline">
+                    Click to view full photo
+                  </span>
+                </div>
+              </button>
+            </div>
+          )}
+
           {idx === 3 && (
             <div className="my-8 rounded-lg overflow-hidden border border-[#222227] bg-[#171719] group">
               <button

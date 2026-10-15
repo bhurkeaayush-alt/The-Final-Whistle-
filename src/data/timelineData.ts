@@ -56,6 +56,8 @@ export const TIMELINE_MILESTONES: TimelineMilestone[] = [
     summary: "Announces his international retirement following Copa América Centenario penalty defeat, then reverses the decision.",
     description: "Following Argentina’s second consecutive Copa América final penalty shootout defeat to Chile at MetLife Stadium—in which Messi missed his spot-kick—an emotionally shattered Messi told journalists in the mixed zone: 'For me, the national team is over. I've done all I can.' The announcement triggered nationwide rallies in Buenos Aires and personal appeals from President Mauricio Macri and Diego Maradona. By August 2016, Messi reaffirmed his commitment: 'I see many problems in Argentine football and I don't intend to create another.'",
     venue: "MetLife Stadium, East Rutherford, New Jersey",
+    imageSrc: "/images/Retirement.jpeg",
+    imageAlt: "Lionel Messi devastated following the 2016 Copa América Centenario final",
     badge: "Turning Point"
   },
   {
