@@ -1,8 +1,13 @@
 import React from "react";
 import { OFFICIAL_TROPHIES, CAREER_RECORD_STATS } from "../data/statsData";
 import { Trophy, Award, Star, Flame, Shield, CheckCircle } from "lucide-react";
+import { useRouter } from "../context/RouterContext";
+import { ROUTES } from "../utils/routes";
 
 export const AchievementSection: React.FC = () => {
+  const { currentPath } = useRouter();
+  const isLegacyPage = currentPath === ROUTES.LEGACY;
+
   return (
     <section id="achievements" className="py-24 bg-[#171719]/40 border-t border-[#171719] scroll-mt-20">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -13,11 +18,19 @@ export const AchievementSection: React.FC = () => {
             <span className="text-[#A5A5AA]">·</span>
             <span>Fact-Checked Archive</span>
           </div>
-          <h2 className="font-serif text-3xl sm:text-5xl font-bold tracking-tight text-[#F5F5F5] mb-4">
-            The Trophy Cabinet & Historic Numbers
-          </h2>
+
+          {isLegacyPage ? (
+            <h1 className="font-serif text-3xl sm:text-5xl font-bold tracking-tight text-[#F5F5F5] mb-4">
+              messi argentina: How did he achieve immortal World Cup and international glory?
+            </h1>
+          ) : (
+            <h2 className="font-serif text-3xl sm:text-5xl font-bold tracking-tight text-[#F5F5F5] mb-4">
+              messi argentina: How did he achieve immortal World Cup and international glory?
+            </h2>
+          )}
+
           <p className="text-sm sm:text-base text-[#A5A5AA] leading-relaxed">
-            Examining the honors won with the Argentine national team, clearly delineating senior major titles from youth Olympic achievements.
+            Discover how Lionel Messi conquered the Argentina world cup, cementing his immortal legacy with Copa América triumphs, iconic honors, and historic records.
           </p>
         </div>
 

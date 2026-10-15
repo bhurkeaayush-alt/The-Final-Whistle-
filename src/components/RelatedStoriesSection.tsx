@@ -1,9 +1,13 @@
 import React from "react";
 import { RELATED_STORIES } from "../data/articleData";
 import { Clock, ArrowRight, ExternalLink } from "lucide-react";
-import { Link } from "../context/RouterContext";
+import { Link, useRouter } from "../context/RouterContext";
+import { ROUTES } from "../utils/routes";
 
 export const RelatedStoriesSection: React.FC = () => {
+  const { currentPath } = useRouter();
+  const isStoriesPage = currentPath === ROUTES.STORIES;
+
   return (
     <section id="related" className="py-24 bg-[#171719]/40 border-t border-[#171719] scroll-mt-20">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -14,16 +18,24 @@ export const RelatedStoriesSection: React.FC = () => {
             <span className="text-[#A5A5AA]">·</span>
             <span>In-Depth Coverage</span>
           </div>
-          <h2 className="font-serif text-3xl sm:text-5xl font-bold tracking-tight text-[#F5F5F5] mb-4">
-            Related Stories & Analysis
-          </h2>
+
+          {isStoriesPage ? (
+            <h1 className="font-serif text-3xl sm:text-5xl font-bold tracking-tight text-[#F5F5F5] mb-4">
+              messi vs ronaldo: Who truly defined modern international football?
+            </h1>
+          ) : (
+            <h2 className="font-serif text-3xl sm:text-5xl font-bold tracking-tight text-[#F5F5F5] mb-4">
+              messi vs ronaldo: Who truly defined modern international football?
+            </h2>
+          )}
+
           <p className="text-sm sm:text-base text-[#A5A5AA] leading-relaxed">
-            Expand your perspective with companion features examining tactical turning points, historical context, and the Albiceleste future.
+            Analyze legendary clashes and iconic messi goals across world football. Discover in-depth editorial stories, tactical breakdowns, and historic rivalries.
           </p>
         </div>
 
-        {/* 3 Story Cards Grid with Dedicated Semantic URLs opening in new tab */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/* Story Cards Grid with Dedicated Semantic URLs */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {RELATED_STORIES.map((story) => (
             <article
               key={story.id}

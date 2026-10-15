@@ -115,12 +115,12 @@ export const MAIN_ARTICLE_SECTIONS: ArticleSection[] = [
   {
     id: "section-6-is-international-retirement-the-end-of-an-era",
     number: "06",
-    title: "Is International Retirement the End of an Era?",
+    title: "Messi Retirement: Is International Football Witnessing the End of an Era?",
     subtitle: "Separating fact from speculation as the twilight chapter unfolds.",
     paragraphs: [
-      "In the aftermath of back-to-back Copa América victories in 2021 and 2024, questions about Messi’s international retirement have inevitably intensified. However, a crucial distinction must be maintained between confirmed reality and media speculation: as of the present day, Lionel Messi has NOT officially retired from international football.",
-      "Unlike his emotional departure in 2016, Messi's current stance is deliberate, realistic, and open-ended. Having transitioned his club career to Inter Miami in Major League Soccer, Messi continues to feature for Argentina in CONMEBOL 2026 World Cup qualifiers. He has openly acknowledged the unforgiving clock of elite biology, stating that whether he participates in the 2026 FIFA World Cup in the United States, Canada, and Mexico depends on his physical conditioning day by day.",
-      "Whether Messi bows out before or during the 2026 World Cup, Argentina is already laying the architectural foundation for a post-Messi reality. Prodigies like Alejandro Garnacho, Valentín Carboni, and Claudio Echeverri represent the emerging generation. Yet no tactical scheme can replace the gravitational pull of number 10. When his final international whistle eventually sounds, it will mark the conclusion not just of a player’s tenure, but of the most romantic, dramatic chapter in modern sporting history."
+      "In the aftermath of back-to-back Copa América victories in 2021 and 2024, messi retirement international football debates have inevitably intensified across world sports media. Fans and tactical analysts often draw comparisons to his past messi retirement from barcelona, scrutinizing how long his physical conditioning will allow him to dominate elite competition.",
+      "However, a crucial distinction must be maintained between confirmed reality and speculative narratives: as of the present day, Lionel Messi has NOT officially retired from international football. Unlike his abrupt emotional departure in 2016, Messi's current stance is deliberate, realistic, and focused on physical readiness.",
+      "Having transitioned his club career to Inter Miami in Major League Soccer, Messi continues to lead Argentina in CONMEBOL 2026 World Cup qualifiers. Whether he steps onto the pitch at the 2026 World Cup or bows out on his own terms, his epic international legacy remains firmly etched in football history as the pinnacle of sporting perseverance."
     ],
     highlightBox: {
       title: "Current Status & Verified Facts",
@@ -140,12 +140,33 @@ export const MAIN_ARTICLE_SECTIONS: ArticleSection[] = [
     ],
     pullQuote: {
       quote: "Legends do not disappear when the final whistle blows. They remain in the memories of everyone who believed.",
-      attribution: "The Final Whistle Editorial Editorial Closing"
+      attribution: "The Final Whistle Editorial Closing"
     }
   }
 ];
 
 export const RELATED_STORIES: RelatedStory[] = [
+  {
+    id: "messi-vs-ronaldo",
+    title: "messi vs ronaldo: Who truly defined modern international football?",
+    category: "Tactical Rivalry & Analysis",
+    readTime: "7 min read",
+    image: "/images/messi-vs-ronaldo-2011.jpg",
+    imageAlt: "Lionel Messi and Cristiano Ronaldo facing each other in an international showdown",
+    summary: "Analyze legendary clashes and iconic messi goals across world football. Discover in-depth editorial stories, tactical breakdowns, and historic rivalries.",
+    fullContent: [
+      "For nearly two decades, the defining debate of world sport centered on two titans who pushed each other to superhuman heights: Lionel Messi and Cristiano Ronaldo.",
+      "While their domestic clashes in El Clásico became weekly spectacles, their international journeys traced contrasting yet equally epic trajectories. From their iconic February 2011 showdown in Geneva—where both superstars scored before Messi clinched a dramatic 90th-minute victory—to their respective continental and global triumphs, their rivalry redefined modern international football.",
+      "A deep examination of iconic messi goals across world football reveals the evolution of a genius: from dazzling solo dribbles against Brazil and Nigeria to thunderous free-kicks against the United States and tactical long-range strikes against Mexico and France in World Cup showdowns.",
+      "Cristiano Ronaldo set an extraordinary milestone with 130+ international goals for Portugal and the 2016 European Championship. Lionel Messi, meanwhile, achieved football immortality by carrying Argentina through heartbreak to back-to-back Copa América crowns and the crowning glory of the 2022 FIFA World Cup in Qatar.",
+      "Who truly defined modern international football? The debate transcends pure numbers. While Ronaldo symbolized relentless individual athletic perfection, Messi's transcendence lay in his ability to elevate an entire collective culture, marrying record-breaking goalscoring with matchless playmaking and World Cup triumph."
+    ],
+    keyTakeaways: [
+      "Historic Geneva 2011 duel where both icons scored and Messi struck the 90th-minute winner.",
+      "Tactical analysis of iconic messi goals and playmaking evolution across five World Cups.",
+      "Contrasting international summits: Euro 2016 glory vs. 2022 World Cup and Copa América immortality."
+    ]
+  },
   {
     id: "road-to-world-cup-glory",
     title: "Argentina’s Road to World Cup Glory",

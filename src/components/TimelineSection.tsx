@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import { TIMELINE_MILESTONES, TimelineMilestone } from "../data/timelineData";
 import { Calendar, MapPin, Award, CheckCircle2, ChevronRight } from "lucide-react";
+import { useRouter } from "../context/RouterContext";
+import { ROUTES } from "../utils/routes";
 
 interface TimelineSectionProps {
   onOpenPhotoLightbox: (photoId: string) => void;
 }
 
 export const TimelineSection: React.FC<TimelineSectionProps> = ({ onOpenPhotoLightbox }) => {
+  const { currentPath } = useRouter();
+  const isTimelinePage = currentPath === ROUTES.TIMELINE;
   const [selectedEra, setSelectedEra] = useState<string>("All");
   const [activeMilestoneIndex, setActiveMilestoneIndex] = useState<number>(0);
 
@@ -27,11 +31,19 @@ export const TimelineSection: React.FC<TimelineSectionProps> = ({ onOpenPhotoLig
             <span className="text-[#A5A5AA]">·</span>
             <span>2005 – 2026</span>
           </div>
-          <h2 className="font-serif text-3xl sm:text-5xl font-bold tracking-tight text-[#F5F5F5] mb-4">
-            The Albiceleste Timeline
-          </h2>
+
+          {isTimelinePage ? (
+            <h1 className="font-serif text-3xl sm:text-5xl font-bold tracking-tight text-[#F5F5F5] mb-4">
+              messi story: How did his journey unfold from 2005 debut to Qatar glory?
+            </h1>
+          ) : (
+            <h2 className="font-serif text-3xl sm:text-5xl font-bold tracking-tight text-[#F5F5F5] mb-4">
+              messi story: How did his journey unfold from 2005 debut to Qatar glory?
+            </h2>
+          )}
+
           <p className="text-sm sm:text-base text-[#A5A5AA] leading-relaxed">
-            From an impetuous red card in Budapest to lifting the World Cup in Doha and defending continental crowns: explore two decades of international resilience.
+            Explore the complete Messi life story and historic messi journey from his 2005 Albiceleste debut to Olympic gold, painful heartbreaks, and World Cup glory.
           </p>
 
           {/* Era Filter Controls (interactive controls) */}

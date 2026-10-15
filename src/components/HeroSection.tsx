@@ -37,8 +37,8 @@ export const HeroSection: React.FC = () => {
         </div>
 
         {/* Main Headline */}
-        <h1 className="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight text-[#F5F5F5] leading-[1.08] max-w-4xl mb-6 drop-shadow-md">
-          Messi and the <span className="italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-[#74ACDF] via-[#F5F5F5] to-[#C6A15B]">End of an Era</span>
+        <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight text-[#F5F5F5] leading-[1.1] max-w-5xl mb-6 drop-shadow-md">
+          Messi retirement: <span className="italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-[#74ACDF] via-[#F5F5F5] to-[#C6A15B]">Is international football witnessing the end of an era?</span>
         </h1>
 
         {/* Supporting Headline */}
@@ -46,9 +46,9 @@ export const HeroSection: React.FC = () => {
           When a footballing legend approaches his final chapter with Argentina, the memories matter as much as the trophies.
         </p>
 
-        {/* Short Introductory Paragraph */}
-        <p className="font-sans text-sm sm:text-base md:text-lg text-[#A5A5AA] max-w-2xl leading-relaxed mb-10">
-          From the bittersweet tears of New Jersey in 2016 to the euphoric night under Lusail’s golden arches in 2022, Lionel Messi’s international journey rewrote the psychology of an entire football nation. As the twilight of his international career arrives, the game prepares to bid farewell to an era that will never be replicated.
+        {/* Short Introductory Paragraph with Target Keywords */}
+        <p className="font-sans text-sm sm:text-base md:text-lg text-[#A5A5AA] max-w-3xl leading-relaxed mb-10">
+          Explore messi retirement international football debates. From his past messi retirement from barcelona to 2026 World Cup questions, discover his epic legacy across two decades of heartbreaks, continental triumphs, and ultimate World Cup glory.
         </p>
 
         {/* Call to Action Buttons opening in another tab */}

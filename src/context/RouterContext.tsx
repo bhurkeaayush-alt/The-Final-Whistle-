@@ -37,24 +37,38 @@ export const RouterProvider: React.FC<{ children: React.ReactNode }> = ({ childr
         path,
         title: `${slug.split("-").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ")} | The Final Whistle`,
         description: "In-depth editorial story analysis from The Final Whistle.",
+        keywords: "messi stories, football editorial, the final whistle",
         label: "Story"
       };
     }
 
     if (meta) {
       document.title = meta.title;
-      const metaDesc = document.querySelector('meta[name="description"]');
-      if (metaDesc) {
-        metaDesc.setAttribute("content", meta.description);
+
+      const setMetaAttr = (selector: string, attr: string, val: string, tagName = "meta", createAttrs?: Record<string, string>) => {
+        let el = document.querySelector(selector);
+        if (!el && createAttrs) {
+          el = document.createElement(tagName);
+          Object.entries(createAttrs).forEach(([k, v]) => el!.setAttribute(k, v));
+          document.head.appendChild(el);
+        }
+        if (el) {
+          el.setAttribute(attr, val);
+        }
+      };
+
+      setMetaAttr('meta[name="description"]', "content", meta.description, "meta", { name: "description" });
+      if (meta.keywords) {
+        setMetaAttr('meta[name="keywords"]', "content", meta.keywords, "meta", { name: "keywords" });
       }
-      const ogTitle = document.querySelector('meta[property="og:title"]');
-      if (ogTitle) ogTitle.setAttribute("content", meta.title);
-      const ogDesc = document.querySelector('meta[property="og:description"]');
-      if (ogDesc) ogDesc.setAttribute("content", meta.description);
-      const twTitle = document.querySelector('meta[name="twitter:title"]');
-      if (twTitle) twTitle.setAttribute("content", meta.title);
-      const twDesc = document.querySelector('meta[name="twitter:description"]');
-      if (twDesc) twDesc.setAttribute("content", meta.description);
+      setMetaAttr('meta[property="og:title"]', "content", meta.title, "meta", { property: "og:title" });
+      setMetaAttr('meta[property="og:description"]', "content", meta.description, "meta", { property: "og:description" });
+      setMetaAttr('meta[name="twitter:title"]', "content", meta.title, "meta", { name: "twitter:title" });
+      setMetaAttr('meta[name="twitter:description"]', "content", meta.description, "meta", { name: "twitter:description" });
+
+      const fullUrl = `${window.location.origin}${meta.path}`;
+      setMetaAttr('meta[property="og:url"]', "content", fullUrl, "meta", { property: "og:url" });
+      setMetaAttr('link[rel="canonical"]', "href", fullUrl, "link", { rel: "canonical" });
     }
   }, []);
 
